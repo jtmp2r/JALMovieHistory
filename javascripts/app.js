@@ -18,9 +18,37 @@ requirejs(
   function($, Handlebars, bootstrap, q, firebase) {
 
 
-   //populate generic header template
-  //require(['hbs!../templates/header'], function(headerTemp) {
-    //    $("#header").html(headerTemp());
- // });
+   // populate generic header template
+    require(['hbs!../templates/filter'], function(Temp) {
+      $("#filter").html(Temp());
+    });
+
+    require(['hbs!../templates/lightbox'], function(Temp) {
+      $("#lightbox").html(Temp());
+    });
+
+    require(['hbs!../templates/logIn'], function(Temp) {
+      $("#logIn").html(Temp());
+    });
+
+    require(['hbs!../templates/mainNav'], function(Temp) {
+      $("#mainNav").html(Temp());
+    });
+
+    require(['hbs!../templates/movies'], function(Temp) {
+      $("#movies").html(Temp());
+    });
+
+    require(['hbs!../templates/register'], function(Temp) {
+      $("#register").html(Temp());
+    });
+
+    require(['hbs!../templates/splash'], function(Temp) {
+      $("#splash").html(Temp());
+    });
+
+    require(['hbs!../templates/splashNav'], function(Temp) {
+      $("#splashNav").html(Temp());
+    });
 
 });
