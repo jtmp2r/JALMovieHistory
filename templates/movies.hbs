@@ -1,1 +1,27 @@
 <h1>Movies</h1>
+<div class="row">
+{{#each Search}}
+  <div class="col-sm-4">
+    <div class="row">
+      <div class="col-sm-8">
+        <img src="https://aeon--nox.googlecode.com/svn/trunk/media/DefaultVideoBigPoster.png" class="img-responsive">
+      </div>
+      <div class=col-sm-4>
+        <span class="glyphicon glyphicon-remove" id="{{imdbID}}"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        <p>{{Title}} ({{Year}})</p>
+      </div>
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-eye-open"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <input class="rating" data-min="0" data-max="5" data-step=".5" id="{{imdbID}}">
+      </div>
+    </div>
+  </div>
+{{/each}}
