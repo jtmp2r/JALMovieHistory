@@ -1,0 +1,29 @@
+
+
+//NAVIGATION///
+h1.topLevel, h3.topLevel, ul.nav, button.logOut {
+	line-height: 2em;
+	display: inline-block;
+}
+
+button.logOut {
+	margin-left: 2em;
+}
+
+ul.nav li a {
+	margin: 1em;
+}
+
+h1.topLevel, h3.topLevel {
+	text-align: center;
+}
+
+//WELCOME SPLASH STYLES
+div.splash {
+	background-color: maroon;
+	border-radius: 3px;
+	color: white;
+}
+div.splash img {
+	max-width: 100%;
+}
