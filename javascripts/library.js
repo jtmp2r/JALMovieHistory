@@ -13,6 +13,25 @@ define(function(require) {
 
       currentUID = UID;
 
+      $.ajax({
+          type: "GET",
+          dataType: "json",
+          url: "https://jal-movie-history.firebaseio.com/Users/"+currentUID+"/library/.json",
+          success: function(userMovies){
+
+            require(['hbs!../templates/movies'], function(Temp) {
+              $("#centerDiv").html(Temp({Movies:userMovies}));
+            });
+
+            console.log("userMovies", userMovies);
+
+          },
+          error: function() {
+              return "Image not found.";
+          }
+
+      });//end AJAX
+
     }, //End populate
 
     add: function(movieID) {
