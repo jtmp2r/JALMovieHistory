@@ -1,0 +1,60 @@
+//Variables
+
+$screen-gradients: linear-gradient(rgba(0,0,0,1) 0%, rgba(0,0,0,1) 2%, rgba(255,255,255,0) 8%, rgba(255,255,255,0) 92%, rgba(0,0,0,1) 98%, rgba(0,0,0,1) 100%),
+linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 2%, rgba(255,255,255,1) 8%, rgba(255,255,255,1) 92%, rgba(0,0,0,1) 98%, rgba(0,0,0,1) 100%);
+
+//GLOBAL STYLES
+
+body {
+	background-image: url('/styles/images/movie_theatre.jpg');
+	background-size: 100% 100%;
+}
+
+
+//NAVIGATION///
+h1.topLevel, h3.topLevel, ul.nav, button.logOut {
+	line-height: 2em;
+	display: inline-block;
+}
+
+button.logOut {
+	margin-left: 2em;
+}
+
+ul.nav li a {
+	margin: 1em;
+}
+
+h1.topLevel, h3.topLevel {
+	text-align: center;
+}
+
+//WELCOME SPLASH STYLES
+div.splash {
+
+background: $screen-gradients;
+	border-radius: 5px;
+	padding: 5%;
+}
+div.splash img {
+	max-width: 100%;
+}
+
+//LOGIN & REGISTER FORM STYLES
+div.form {
+	background: $screen-gradients;
+	padding: 5%;
+}
+
+div.form h2,
+div.form p {
+	text-align: center;
+	margin: auto;
+}
+div.form img {
+	max-width: 100%;
+}
+
+div.form form {
+	margin-top: 2em;
+}
