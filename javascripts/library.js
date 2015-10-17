@@ -3,14 +3,22 @@ define(function(require) {
   		q = require("q"),
   		firebase = require('firebase');
 
+    var currentUID;
+
   return {
 
 
-    populate: function(currentUID) {
+    populate: function(UID) {
+
+      currentUID = UID;
 
     }, //End populate
 
     add: function(movieID) {
+      console.log('called add with ' + movieID);
+      console.log('user id is ' + currentUID);
+
+
 
     }, //End add
 

@@ -1,4 +1,6 @@
-{{#each Search }}
+<h1>Search Results</h1>
+
+{{#each Search}}
 <div class="row">
   <div class="col-sm-8">
     <p>Title: {{Title}}</p>
@@ -6,7 +8,7 @@
     <p>
   </div>
   <div class="col-sm-4>">
-    <button type="button" class="btn btn-default" id="{{imdbID}}">Add to Watch List</button>
+    <button type="button" class="btn btn-default addMovie" id="{{imdbID}}">Add to Watch List</button>
   </div>
 </div>
 {{/each}}
