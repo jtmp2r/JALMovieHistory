@@ -3,9 +3,11 @@ define(function(require) {
   		q = require("q"),
   		firebase = require('firebase'),
       library = require('library'),
-      search = require('search');
+      search = require('search'),
+      logout = require('logOut');
 
   	var currentUID;
+    var ref = new Firebase("https://jal-movie-history.firebaseio.com/");
 
   return {
 
@@ -15,7 +17,7 @@ define(function(require) {
       var userEmail     = $("#emailLogIn").val();
       var userPassword  = $("#passwordLogIn").val();
 
-      var ref = new Firebase("https://jal-movie-history.firebaseio.com/");
+
       ref.authWithPassword({
         email     : userEmail,
         password  : userPassword
@@ -41,12 +43,23 @@ define(function(require) {
                 $(document).on('click', '#searchButton', function(e){
                   e.preventDefault();
                   search.search();
+                });
+
+                $(document).on('click', '#hideLightbox', function(e){
+                  e.preventDefault();
+                  $('#lightbox').html("");
 
                 });
 
               }); //end populate lightbox
 
             });//end search event handler
+
+            //Log Out event handler
+            $(document).on('click', '#logOut', function(){
+              logOut.logOut();
+              });
+
 
           });
 
@@ -60,15 +73,9 @@ define(function(require) {
 
         }
 });
-    }, //End LogIn
+    } //End LogIn
 
-    setUID: function(newUID) {
-    	currentUID = newUID;
-    }, //END setUID
 
-    getUID: function() {
-    	return currentUID;
-    } //end getUID
 
 	};//end return
 
