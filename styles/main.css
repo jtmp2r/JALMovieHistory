@@ -37,4 +37,22 @@ div.form img {
 div.form form {
   margin-top: 2em; }
 
+.lightbox {
+  width: 70%;
+  margin: 0 auto;
+  /*centers the div horizontally in all browsers (except IE)*/
+  background: #fff;
+  text-align: left;
+  /*resets text alignment from body tag */
+  border: 1px solid #ccc;
+  border-top: none;
+  padding: 25px;
+  /*Let's add some CSS3 styles, these will degrade gracefully in older browser and IE*/
+  border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  -webkit-border-radius: 0 0 5px 5px;
+  box-shadow: 0 0 5px #ccc;
+  -moz-box-shadow: 0 0 5px #ccc;
+  -webkit-box-shadow: 0 0 5px #ccc; }
+
 /*# sourceMappingURL=main.css.map */
