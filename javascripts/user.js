@@ -36,7 +36,7 @@ define(function(require) {
             $(document).on('click', '#search', function(){
 
               require(['hbs!../templates/lightbox'], function(Temp) {
-              $("#lightbox").html(Temp());
+              $("#lightbox").append(Temp());
 
                 $(document).on('click', '#searchButton', function(e){
                   e.preventDefault();
