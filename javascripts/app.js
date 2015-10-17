@@ -16,8 +16,8 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "hbs", "bootstrap", "q", "firebase", "bootstrap-star-rating"],
-  function($, Handlebars, bootstrap, q, firebase, bootstrap_star) {
+  ["jquery", "hbs", "bootstrap", "q", "firebase", "bootstrap-star-rating", "library", "register", "search", "user"],
+  function($, Handlebars, bootstrap, q, firebase, bootstrap_star, library, register, search, user) {
 
 
    // populate generic header template
