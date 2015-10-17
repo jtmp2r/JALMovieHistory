@@ -13,24 +13,17 @@ define(function(require) {
 
       currentUID = UID;
 
-      $.ajax({
-          type: "GET",
-          dataType: "json",
-          url: "https://jal-movie-history.firebaseio.com/Users/"+currentUID+"/library/.json",
-          success: function(userMovies){
+      ref.child('Users/'+currentUID+'/library/').on("value", function(snapshot){
 
-            require(['hbs!../templates/movies'], function(Temp) {
-              $("#centerDiv").html(Temp({Movies:userMovies}));
-            });
+        var userMovies = snapshot.val();
 
-            console.log("userMovies", userMovies);
+        require(['hbs!../templates/movies'], function(Temp) {
+          $("#centerDiv").html(Temp({Movies:userMovies}));
+        });
 
-          },
-          error: function() {
-              return "Image not found.";
-          }
-
-      });//end AJAX
+      }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+      });
 
     }, //End populate
 
