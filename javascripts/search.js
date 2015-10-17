@@ -1,8 +1,7 @@
 define(function(require) {
   var _ = require("lodash"),
   		q = require("q"),
-  		firebase = require('firebase'),
-      user = require('user');
+  		firebase = require('firebase');
 
 
 
@@ -11,6 +10,7 @@ define(function(require) {
 
     search: function() {
 
+    	console.log('search!');
     } //End search
 
 
