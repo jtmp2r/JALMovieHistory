@@ -2,7 +2,8 @@ define(function(require) {
   var _ = require("lodash"),
   		q = require("q"),
   		firebase = require('firebase'),
-      library = require('library');
+      library = require('library'),
+      search = require('search');
 
   	var currentUID;
 
@@ -30,6 +31,23 @@ define(function(require) {
 
           require(['hbs!../templates/mainNav'], function(Temp) {
             $("#mainNav").html(Temp());
+
+            //SEARCH Button Event Handler////////
+            $(document).on('click', '#search', function(){
+
+              require(['hbs!../templates/lightbox'], function(Temp) {
+              $("#lightbox").html(Temp());
+
+                $(document).on('click', '#searchButton', function(e){
+                  e.preventDefault();
+                  search.search();
+
+                });
+
+              }); //end populate lightbox
+
+            });//end search event handler
+
           });
 
           require(['hbs!../templates/filter'], function(Temp) {
