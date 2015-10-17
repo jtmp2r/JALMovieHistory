@@ -30,6 +30,14 @@ requirejs(
 
         require(['hbs!../templates/logIn'], function(Temp) {
           $("#centerDiv").html(Temp());
+
+         $(document).on('click', '#submitLogIn', function(e){
+
+          e.preventDefault();
+          user.logIn();
+
+        })
+
         });
 
 
@@ -42,6 +50,13 @@ requirejs(
           $("#centerDiv").html(Temp());
         });
 
+        //event handler for log in form
+        $(document).on('click', '#submitRegister', function(e){
+
+          e.preventDefault();
+          register.newUser();
+
+        });
 
       }); //end logIn Handler
 
