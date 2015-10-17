@@ -4,7 +4,7 @@ define(function(require) {
   		firebase = require('firebase'),
       library = require('library'),
       search = require('search'),
-      logout = require('logOut');
+      logOut = require('logOut');
 
   	var currentUID;
     var ref = new Firebase("https://jal-movie-history.firebaseio.com/");
@@ -29,7 +29,7 @@ define(function(require) {
 
           currentUID = authData.uid;
 
-          $("#splashNav").html("");
+          $("#splashNav").hide();
 
           require(['hbs!../templates/mainNav'], function(Temp) {
             $("#mainNav").html(Temp());
@@ -38,7 +38,7 @@ define(function(require) {
             $(document).on('click', '#search', function(){
 
               require(['hbs!../templates/lightbox'], function(Temp) {
-              $("#lightbox").append(Temp());
+              $("#lightbox").html(Temp());
 
                 $(document).on('click', '#searchButton', function(e){
                   e.preventDefault();
