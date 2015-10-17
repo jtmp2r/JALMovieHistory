@@ -1,15 +1,12 @@
 define(function(require) {
   var _ = require("lodash"),
   		q = require("q"),
-  		firebase = require('firebase'),
-      user = require('user');
-
-  	var currentUID = user.getUID();
+  		firebase = require('firebase');
 
   return {
 
 
-    populate: function() {
+    populate: function(currentUID) {
 
     }, //End populate
 

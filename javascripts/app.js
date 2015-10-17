@@ -36,7 +36,7 @@ requirejs(
           e.preventDefault();
           user.logIn();
 
-        })
+        });
 
         });
 
