@@ -2,9 +2,13 @@
   <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
       <div class="input-group">
-        <input type="text" class="form-control" id="searchInput" placeholder="Search by Movie Title">
+        <select class="form-control" id="findInput" placeholder="Search by Movie Title">
+          {{#each Movies}}
+          <option val="{{Title}}">{{Title}}</option>
+          {{/each}}
+        </select>
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button" id="searchButton">Go!</button>
+          <button class="btn btn-default" type="button" id="findButton">Go!</button>
         </span>
       </div>
     </div>
@@ -13,5 +17,5 @@
     </div>
   </div>
 
-  <div id="searchResult"></div>
+  <div id="findResult"></div>
 </div>

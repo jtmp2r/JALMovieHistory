@@ -34,26 +34,7 @@ define(function(require) {
           require(['hbs!../templates/mainNav'], function(Temp) {
             $("#mainNav").html(Temp());
 
-            //SEARCH Button Event Handler////////
-            $(document).on('click', '#search', function(){
 
-              require(['hbs!../templates/lightbox'], function(Temp) {
-              $("#lightbox").html(Temp());
-
-                $(document).on('click', '#searchButton', function(e){
-                  e.preventDefault();
-                  search.search();
-                });
-
-                $(document).on('click', '#hideLightbox', function(e){
-                  e.preventDefault();
-                  $('#lightbox').html("");
-
-                });
-
-              }); //end populate lightbox
-
-            });//end search event handler
 
             //Log Out event handler
             $(document).on('click', '#logOut', function(){

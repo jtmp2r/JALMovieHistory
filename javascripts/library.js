@@ -10,6 +10,9 @@ define(function(require) {
 
   return {
 
+    getUID: function() {
+      return currentUID;
+    },
 
     populate: function(UID) {
 
@@ -17,7 +20,7 @@ define(function(require) {
       var filteredMovies = {};
 
       ref.off("value");
-      ref.child('Users/'+currentUID+'/library/').on("value", function(snapshot){
+      ref.child('Users/'+currentUID+'/library/').orderByChild('Title').on("value", function(snapshot){
 
 
         var userMovies = snapshot.val();
@@ -83,6 +86,7 @@ define(function(require) {
           success: function(movieData){
 
             ref.child("Users/"+currentUID+"/library/"+movieID).set(movieData);
+            ref.child("Users/"+currentUID+"/library/"+movieID+"/userRating").set(-1);
 
 
           },
@@ -95,7 +99,9 @@ define(function(require) {
 
     }, //End add
 
-    remove: function(movieID) {
+    deleteMovie: function(movieID) {
+
+         ref.child("Users/"+currentUID+"/library/"+movieID).remove();
 
     }, //End remove
 

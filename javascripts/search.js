@@ -2,9 +2,11 @@ define(function(require) {
   var _ = require("lodash"),
   		q = require("q"),
   		firebase = require('firebase'),
-  		library = require('library');
+  		library = require('library'),
+      ratings = require('ratings');
 
 
+ var ref = new Firebase("https://jal-movie-history.firebaseio.com/");
 
   return {
 
@@ -12,7 +14,6 @@ define(function(require) {
     search: function() {
 
     	var searchString = $('#searchInput').val().split(" ").join("+");
-    	console.log(searchString);
 
 	    $.ajax({
 	        type: "GET",
@@ -41,8 +42,30 @@ define(function(require) {
 
 	    });//end AJAX
 
-    } //End search
+    }, //End search
 
+    find: function() {
+
+      var findString = $('#findInput').val();
+      currentUID = library.getUID();
+
+      ref.child('Users/'+currentUID+'/library/').orderByChild("Title").equalTo(findString).on("value", function(snapshot) {
+
+          var findResult= snapshot.val();
+
+          require(['hbs!../templates/movies'], function(Temp) {
+          $("#findResult").html(Temp({Movies: findResult}));
+
+          });
+
+          ratings.showRatings(currentUID);
+
+      });
+
+
+
+
+    } //End find
 
 
 

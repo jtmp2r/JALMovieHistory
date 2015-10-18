@@ -20,6 +20,7 @@ requirejs(
   function($, Handlebars, bootstrap, q, firebase, bootstrap_star, library, register, search, user, ratings) {
 
 
+    var ref = new Firebase("https://jal-movie-history.firebaseio.com/");
     //Populate  splashNav
     require(['hbs!../templates/splashNav'], function(Temp) {
       $("#splashNav").html(Temp());
@@ -85,8 +86,62 @@ requirejs(
     });
 
 
+    //end handler for remove glyphicon-remove" id="remove{{imdbID}}
+
+    $(document).on('click', '.deleteMovieIcon', function(){
+      library.deleteMovie($(this).attr('imdbID'));
+    });
 
 
+                //SEARCH Button Event Handler////////
+    $(document).on('click', '#search', function(){
 
+      require(['hbs!../templates/lightbox'], function(Temp) {
+      $("#lightbox").html(Temp());
+
+        $(document).on('click', '#searchButton', function(e){
+          e.preventDefault();
+          search.search();
+        });
+
+        $(document).on('click', '#hideLightbox', function(e){
+          e.preventDefault();
+          $('#lightbox').html("");
+
+        });
+
+      }); //end populate lightbox
+
+    });//end search event handler
+
+                    //FIND Button Event Handler////////
+    $(document).on('click', 'a#find', function(){
+
+      var currentUID = library.getUID();
+      var movies;
+
+      ref.child('Users/'+currentUID+'/library/').orderByChild('Title').once("value", function(snapshot){
+
+      var userMovies = snapshot.val();
+
+      require(['hbs!../templates/findLightbox'], function(Temp) {
+      $("#lightbox").html(Temp({Movies:userMovies}));
+
+        $(document).on('click', '#findButton', function(e){
+          e.preventDefault();
+          search.find();
+        });
+
+        $(document).on('click', '#hideLightbox', function(e){
+          e.preventDefault();
+          $('#lightbox').html("");
+
+        });
+
+      }); //end populate lightbox
+
+      });// end snapshot
+
+    });//end find event handler
 
 }); //end require

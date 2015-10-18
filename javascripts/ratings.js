@@ -10,25 +10,27 @@ define(function(require) {
 
   			showRatings: function(UID) {
 
-  				currentUID = UID;
+          currentUID = UID;
+          console.log('show ratings called');
+          $('div.userRating').each(function(){
 
-  				$('div.userRating').each(function(){
+            var thisMovieRating = $(this).attr('rating');
+            var thisMovieID = $(this).attr('imdbID');
 
-  					var thisMovieRating = $(this).attr('rating');
-  					var thisMovieID = $(this).attr('imdbID');
+            if (thisMovieRating == -1) {
 
-  					if (thisMovieRating == -1) {
+              $(this).html('<p>Not Yet Watched</p> <span class="glyphicon glyphicon-eye-open"></span>');
 
-  						$(this).html('<p>Not Yet Watched</p> <span class="glyphicon glyphicon-eye-open"></span>');
+            } else {
 
-  					} else {
+              $(this).html('<p>Rating: ');
+              for (i=0; i < thisMovieRating; i++)
+              $(this).append('<img src="../styles/images/popcornKernel3.png">');
+            }
+              $(this).append('</p>');
+          });
 
-  						$(this).html('Rating: ');
-  						for (i=0; i < thisMovieRating; i++)
-  						$(this).append('<img src="../styles/images/popcornKernel3.png">');
-  					}
 
-  				});
 
   			},
 

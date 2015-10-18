@@ -1,14 +1,12 @@
-
-<h1>Movies</h1>
 <div class="row">
 {{#each Movies}}
-  <div class="col-sm-4">
+  <div class="col-sm-4 movieDiv">
     <div class="row">
       <div class="col-sm-8">
         <img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=8513e0a1" class="img-responsive">
       </div>
       <div class=col-sm-4>
-        <span class="glyphicon glyphicon-remove" id="remove{{imdbID}}"></span>
+        <span class="glyphicon glyphicon-remove deleteMovieIcon" imdbID='{{imdbID}}'></span>
       </div>
     </div>
     <div class="row">
