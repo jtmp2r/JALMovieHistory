@@ -1,25 +1,73 @@
 define(function(require) {
   var _ = require("lodash"),
   		q = require("q"),
-  		firebase = require('firebase');
+  		firebase = require('firebase'),
+      ratings = require('ratings');
 
     var currentUID;
     var ref = new Firebase("https://jal-movie-history.firebaseio.com/");
+    var currentFilter = "all";
 
   return {
 
+    getUID: function() {
+      return currentUID;
+    },
 
     populate: function(UID) {
 
       currentUID = UID;
+      var filteredMovies = {};
 
-      ref.child('Users/'+currentUID+'/library/').on("value", function(snapshot){
+      ref.off("value");
+      ref.child('Users/'+currentUID+'/library/').orderByChild('Title').on("value", function(snapshot){
+
 
         var userMovies = snapshot.val();
 
+        //filter based on filter status
+        if (currentFilter == "watched") {
+
+          userMoviesKeys = _.keys(userMovies);
+
+          userMoviesKeys.forEach(function(key){
+
+            if (userMovies[key].userRating > -1) {
+              filteredMovies[key] = userMovies[key];
+
+            }
+
+          });
+
+        userMovies = filteredMovies;
+
+        }
+
+        //filter based on filter status UNWATCHED
+        if (currentFilter == "unwatched") {
+
+          userMoviesKeys = _.keys(userMovies);
+
+
+          userMoviesKeys.forEach(function(key){
+
+            if (userMovies[key].userRating == -1) {
+              filteredMovies[key] = userMovies[key];
+
+            }
+
+          });
+
+        userMovies = filteredMovies;
+        }
+
+
         require(['hbs!../templates/movies'], function(Temp) {
           $("#centerDiv").html(Temp({Movies:userMovies}));
+
+          ratings.showRatings(currentUID);
         });
+
 
       }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
@@ -38,6 +86,7 @@ define(function(require) {
           success: function(movieData){
 
             ref.child("Users/"+currentUID+"/library/"+movieID).set(movieData);
+            ref.child("Users/"+currentUID+"/library/"+movieID+"/userRating").set(-1);
 
 
           },
@@ -50,13 +99,16 @@ define(function(require) {
 
     }, //End add
 
-    remove: function(movieID) {
+    deleteMovie: function(movieID) {
+
+         ref.child("Users/"+currentUID+"/library/"+movieID).remove();
 
     }, //End remove
 
-    edit: function(movieID) {
 
-    } //End edit
+    setFilter: function(filter){
+      currentFilter = filter;
+    }
 
 
 	};//end return

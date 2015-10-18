@@ -34,26 +34,7 @@ define(function(require) {
           require(['hbs!../templates/mainNav'], function(Temp) {
             $("#mainNav").html(Temp());
 
-            //SEARCH Button Event Handler////////
-            $(document).on('click', '#search', function(){
 
-              require(['hbs!../templates/lightbox'], function(Temp) {
-              $("#lightbox").html(Temp());
-
-                $(document).on('click', '#searchButton', function(e){
-                  e.preventDefault();
-                  search.search();
-                });
-
-                $(document).on('click', '#hideLightbox', function(e){
-                  e.preventDefault();
-                  $('#lightbox').html("");
-
-                });
-
-              }); //end populate lightbox
-
-            });//end search event handler
 
             //Log Out event handler
             $(document).on('click', '#logOut', function(){
@@ -65,6 +46,31 @@ define(function(require) {
 
           require(['hbs!../templates/filter'], function(Temp) {
             $("#filter").html(Temp());
+
+               //filter handlers
+              $(document).on('click', '#filterAll', function(){
+                $('button.filterButton').each(function(){ $(this).removeClass('btn-success');});
+                $('#filterAll').addClass('btn-success');
+                library.setFilter("all");
+                library.populate(currentUID);
+              });
+
+              $(document).on('click', '#filterWatched', function(){
+                $('button.filterButton').each(function(){ $(this).removeClass('btn-success');});
+                $('#filterWatched').addClass('btn-success');
+                library.setFilter("watched");
+                library.populate(currentUID);
+              });
+
+              $(document).on('click', '#filterUnwatched', function(){
+                $('button.filterButton').each(function(){ $(this).removeClass('btn-success');});
+                $('#filterUnwatched').addClass('btn-success');
+                library.setFilter("unwatched");
+                library.populate(currentUID);
+              });
+
+
+
           });
 
           $("#centerDiv").html("");

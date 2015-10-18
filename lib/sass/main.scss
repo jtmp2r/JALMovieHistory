@@ -1,3 +1,6 @@
+//fonts
+@import url(https://fonts.googleapis.com/css?family=Kaushan+Script);
+
 //Variables
 
 $screen-gradients: linear-gradient(rgba(0,0,0,1) 0%, rgba(0,0,0,1) 2%, rgba(255,255,255,0) 8%, rgba(255,255,255,0) 92%, rgba(0,0,0,1) 98%, rgba(0,0,0,1) 100%),
@@ -6,14 +9,20 @@ linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 2%, rgba(255,255,255,1
 //GLOBAL STYLES
 
 body {
-	// background-image: url('/styles/images/movie_theatre.jpg');
-	background-size: 100% 100%;
+    // background: linear-gradient(to right, #a90329 0%,#8f0222 44%,#6d0019 100%);
+	  background: url('/styles/images/curtain.jpg') no-repeat center center fixed;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+   	font-family: 'Kaushan Script', cursive;
 }
 
 
 //NAVIGATION///
 h1.topLevel, h3.topLevel, ul.nav, button.logOut {
 	line-height: 2em;
+	color: white;
 	display: inline-block;
 }
 
@@ -59,10 +68,38 @@ div.form form {
 	margin-top: 2em;
 }
 
+//MOVIES styles
+
+div.movieDiv {
+	height: 29em;
+	border: 1em solid rgba(0,0,0,0);
+	padding: 2em;
+	margin-bottom: 1em;
+
+}
+
+div.movieDiv p {
+	color: white;
+	line-height: 1.5em;
+}
+
+/////////RATING
+
+div.userRating img {
+	max-height: 15px;
+	max-width: 15px;
+
+}
+
+//LIGHTBOX Styles
 .lightbox {
-    width:70%;
+		position: absolute;
+		top: 100px;
+		z-index: 2;
+    width:95%;
+    min-height: 80%;
     margin:0 auto; /*centers the div horizontally in all browsers (except IE)*/
-    background:#fff;
+    background: rgba(0,0,0,0.7);
     text-align:left; /*resets text alignment from body tag */
     border:1px solid #ccc;
     border-top:none;
@@ -76,5 +113,10 @@ div.form form {
     -webkit-box-shadow:0 0 5px #ccc;
 }
 
+.lightbox .searchResult {
+
+	background: rgba(255,255,255,1);
+
+}
 
 
