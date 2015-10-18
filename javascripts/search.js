@@ -1,7 +1,7 @@
 define(function(require) {
   var _ = require("lodash"),
   		q = require("q"),
-  		firebase = require('firebase')
+  		firebase = require('firebase'),
   		library = require('library');
 
 

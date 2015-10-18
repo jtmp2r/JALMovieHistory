@@ -16,8 +16,8 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "hbs", "bootstrap", "q", "firebase", "bootstrap-star-rating", "library", "register", "search", "user"],
-  function($, Handlebars, bootstrap, q, firebase, bootstrap_star, library, register, search, user) {
+  ["jquery", "hbs", "bootstrap", "q", "firebase", "bootstrap-star-rating", "library", "register", "search", "user", "ratings"],
+  function($, Handlebars, bootstrap, q, firebase, bootstrap_star, library, register, search, user, ratings) {
 
 
     //Populate  splashNav
@@ -69,6 +69,10 @@ requirejs(
     }); //end populate splash
 
 
+    //event handler for ratings
+    $(document).on('click', '.userRating', function(){
+      ratings.editRating($(this).attr('imdbID'));
+    });
 
 
 

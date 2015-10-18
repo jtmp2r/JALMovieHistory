@@ -55,4 +55,8 @@ div.form form {
   -moz-box-shadow: 0 0 5px #ccc;
   -webkit-box-shadow: 0 0 5px #ccc; }
 
+div.userRating img {
+  max-height: 15px;
+  max-width: 15px; }
+
 /*# sourceMappingURL=main.css.map */
