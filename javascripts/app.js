@@ -94,14 +94,14 @@ requirejs(
 
 
                 //SEARCH Button Event Handler////////
-    $(document).on('click', '#search', function(){
+    $(document).on('click', 'a#search', function(){
 
       require(['hbs!../templates/lightbox'], function(Temp) {
       $("#lightbox").html(Temp());
 
         $(document).on('click', '#searchButton', function(e){
           e.preventDefault();
-          search.search();
+          search.searchOMDB();
         });
 
         $(document).on('click', '#hideLightbox', function(e){
@@ -129,7 +129,7 @@ requirejs(
 
         $(document).on('click', '#findButton', function(e){
           e.preventDefault();
-          search.find();
+          search.searchLibrary();
         });
 
         $(document).on('click', '#hideLightbox', function(e){

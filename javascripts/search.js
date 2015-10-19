@@ -11,9 +11,11 @@ define(function(require) {
   return {
 
 
-    search: function() {
+    searchOMDB: function() {
 
     	var searchString = $('#searchInput').val().split(" ").join("+");
+
+      console.log('searching for ' + searchString);
 
 	    $.ajax({
 	        type: "GET",
@@ -44,7 +46,7 @@ define(function(require) {
 
     }, //End search
 
-    find: function() {
+    searchLibrary: function() {
 
       var findString = $('#findInput').val();
       currentUID = library.getUID();
