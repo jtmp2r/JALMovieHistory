@@ -48,10 +48,10 @@ define(function(require) {
             $("#filter").html(Temp());
 
                //filter handlers
-              $(document).on('click', '#filterAll', function(){
+              $(document).on('click', '#filter5stars', function(){
                 $('button.filterButton').each(function(){ $(this).removeClass('btn-success');});
-                $('#filterAll').addClass('btn-success');
-                library.setFilter("all");
+                $('#filter5stars').addClass('btn-success');
+                library.setFilter("5stars");
                 library.populate(currentUID);
               });
 

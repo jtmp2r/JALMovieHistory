@@ -61,6 +61,24 @@ define(function(require) {
         userMovies = filteredMovies;
         }
 
+         //filter based on filter status UNWATCHED
+        if (currentFilter == "5stars") {
+
+          userMoviesKeys = _.keys(userMovies);
+
+
+          userMoviesKeys.forEach(function(key){
+
+            if (userMovies[key].userRating == 5) {
+              filteredMovies[key] = userMovies[key];
+
+            }
+
+          });
+
+        userMovies = filteredMovies;
+        }
+
 
         require(['hbs!../templates/movies'], function(Temp) {
           $("#centerDiv").html(Temp({Movies:userMovies}));
