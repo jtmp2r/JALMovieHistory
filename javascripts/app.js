@@ -94,54 +94,14 @@ requirejs(
 
 
                 //SEARCH Button Event Handler////////
-    $(document).on('click', 'a#search', function(){
 
-      require(['hbs!../templates/lightbox'], function(Temp) {
-      $("#lightbox").html(Temp());
 
         $(document).on('click', '#searchButton', function(e){
           e.preventDefault();
           search.searchOMDB();
         });
 
-        $(document).on('click', '#hideLightbox', function(e){
-          e.preventDefault();
-          $('#lightbox').html("");
 
-        });
 
-      }); //end populate lightbox
-
-    });//end search event handler
-
-                    //FIND Button Event Handler////////
-    $(document).on('click', 'a#find', function(){
-
-      var currentUID = library.getUID();
-      var movies;
-
-      ref.child('Users/'+currentUID+'/library/').orderByChild('Title').once("value", function(snapshot){
-
-      var userMovies = snapshot.val();
-
-      require(['hbs!../templates/findLightbox'], function(Temp) {
-      $("#lightbox").html(Temp({Movies:userMovies}));
-
-        $(document).on('click', '#findButton', function(e){
-          e.preventDefault();
-          search.searchLibrary();
-        });
-
-        $(document).on('click', '#hideLightbox', function(e){
-          e.preventDefault();
-          $('#lightbox').html("");
-
-        });
-
-      }); //end populate lightbox
-
-      });// end snapshot
-
-    });//end find event handler
 
 }); //end require

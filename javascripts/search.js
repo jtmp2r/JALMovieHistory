@@ -3,7 +3,8 @@ define(function(require) {
   		q = require("q"),
   		firebase = require('firebase'),
   		library = require('library'),
-      ratings = require('ratings');
+      ratings = require('ratings'),
+      libraryCheck = require('libraryCheck');
 
 
  var ref = new Firebase("https://jal-movie-history.firebaseio.com/");
@@ -23,9 +24,13 @@ define(function(require) {
 	        url: "http://www.omdbapi.com/?s=" + searchString + "&y=&plot=short&r=json",
 	        success: function(searchData){
 
+            console.log(searchData);
+
+            searchData = libraryCheck.check(searchData);
+
 	          require(['hbs!../templates/searchResult'], function(Temp) {
 
-              $("#searchResult").html(Temp(searchData));
+              $("#centerDiv").html(Temp(searchData));
 
               $(document).on('click', '.addMovie', function(e){
               	console.log($(this));

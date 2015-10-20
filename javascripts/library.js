@@ -6,7 +6,7 @@ define(function(require) {
 
     var currentUID;
     var ref = new Firebase("https://jal-movie-history.firebaseio.com/");
-    var currentFilter = "all";
+    var currentFilter = "5stars";
 
   return {
 
@@ -25,7 +25,7 @@ define(function(require) {
 
         var userMovies = snapshot.val();
 
-        //filter based on filter status
+        //filter based on filter status Watched
         if (currentFilter == "watched") {
 
           userMoviesKeys = _.keys(userMovies);
@@ -61,7 +61,7 @@ define(function(require) {
         userMovies = filteredMovies;
         }
 
-         //filter based on filter status UNWATCHED
+         //filter based on filter status 5 stars
         if (currentFilter == "5stars") {
 
           userMoviesKeys = _.keys(userMovies);

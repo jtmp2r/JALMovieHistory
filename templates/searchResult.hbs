@@ -1,14 +1,25 @@
 <h1>Search Results</h1>
-
+<div class="row">
 {{#each Search}}
-<div class="row searchResult">
-  <div class="col-sm-8">
-    <p>Title: {{Title}}</p>
-    <p>Year: {{Year}}</p>
-    <p>
-  </div>
-  <div class="col-sm-4>">
-    <button type="button" class="btn btn-default addMovie" id="{{imdbID}}">Add to Watch List</button>
-  </div>
+
+<div class="col-sm-4 movieDiv">
+	<div class="row">
+		<div class="col-sm-8">
+	        <img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=8513e0a1" class="img-responsive">
+	  </div>
+    <div class=col-sm-4>
+      <span class="glyphicon glyphicon-remove deleteMovieIcon" imdbID='{{imdbID}}'></span>
+    </div>
+    <div class="row">
+	      <div class="col-sm-12">
+	        <p>{{Title}} ({{Year}})</p>
+	      </div>
+
+	      <div class="col-sm-12>">
+	    <button type="button" class="btn btn-default addMovie" id="{{imdbID}}">Add to Watch List</button>
+				</div>
+		</div>
+	</div>
 </div>
 {{/each}}
+</div>
