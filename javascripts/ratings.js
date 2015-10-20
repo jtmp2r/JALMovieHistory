@@ -17,17 +17,16 @@ define(function(require) {
             var thisMovieRating = $(this).attr('rating');
             var thisMovieID = $(this).attr('imdbID');
 
-            if (thisMovieRating == -1) {
-
+            if (thisMovieRating == -2) {
+              $(this).html('<div class="col-sm-12>"><button type="button" class="btn btn-default addMovie" id="'+thisMovieID+'"+>Add to Watch List</button></div>')
+            } else if (thisMovieRating == -1) {
               $(this).html('<p>Not Yet Watched</p> <span class="glyphicon glyphicon-eye-open"></span>');
-
             } else {
-
               $(this).html('<p>Rating: ');
               for (i=0; i < thisMovieRating; i++)
               $(this).append('<img src="../styles/images/popcornKernel3.png">');
-            }
               $(this).append('</p>');
+            }
           });
 
 

@@ -2,6 +2,7 @@ define(function(require) {
   var _ = require("lodash"),
   		q = require("q"),
   		firebase = require('firebase'),
+      $ = require('jquery'),
   		library = require('library');
 
   		var ref = new Firebase("https://jal-movie-history.firebaseio.com/");
@@ -14,17 +15,21 @@ return {
 
  		currentUID = library.getUID();
 
- 		console.log(currentUID);
-
   	ref.child('Users/'+currentUID+'/library/').orderByChild('Title').on("value", function(snapshot){
 
       var userMovies = snapshot.val();
+      var allUserMovies = _.keys(userMovies);
+
+      searchData.Search.forEach(function(movie){
+        console.log(movie);
+
+        movie.userRating = -2;
+        if (allUserMovies.indexOf(movie.imdbID) !== -1) {
+          movie.userRating = userMovies[movie.imdbID].userRating;
+        }
 
 
-      console.log('We have userMovies');
-      console.log(userMovies);
-      console.log("and we have searchData");
-      console.log(searchData);
+      }); //end forEach
 
       return searchData;
 

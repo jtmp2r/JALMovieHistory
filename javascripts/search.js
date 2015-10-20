@@ -24,16 +24,19 @@ define(function(require) {
 	        url: "http://www.omdbapi.com/?s=" + searchString + "&y=&plot=short&r=json",
 	        success: function(searchData){
 
-            console.log(searchData);
+            console.log('searchData', searchData);
 
-            searchData = libraryCheck.check(searchData);
+            libraryCheck.check(searchData);
 
 	          require(['hbs!../templates/searchResult'], function(Temp) {
 
               $("#centerDiv").html(Temp(searchData));
 
+              var currentUID = library.getUID();
+              ratings.showRatings(currentUID);
+
               $(document).on('click', '.addMovie', function(e){
-              	console.log($(this));
+              	console.log('Movie Added through button',$(this));
               	movieID = $(this).attr('id');
                 library.add(movieID);
 
