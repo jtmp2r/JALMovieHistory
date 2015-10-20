@@ -1,6 +1,5 @@
 //fonts
-@import url(https://fonts.googleapis.com/css?family=Kaushan+Script);
-
+@import url(https://fonts.googleapis.com/css?family=Handlee);
 //Variables
 
 $screen-gradients: linear-gradient(rgba(0,0,0,1) 0%, rgba(0,0,0,1) 2%, rgba(255,255,255,0) 8%, rgba(255,255,255,0) 92%, rgba(0,0,0,1) 98%, rgba(0,0,0,1) 100%),
@@ -15,7 +14,8 @@ body {
     -webkit-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-   	font-family: 'Kaushan Script', cursive;
+   	font-family: 'Handlee', sans-serif;
+    font-size: 1.5em;
 }
 
 
@@ -24,6 +24,7 @@ h1.topLevel, h3.topLevel, ul.nav, button.logOut {
 	line-height: 2em;
 	color: white;
 	display: inline-block;
+  font-variant: small-caps;
 }
 
 button.logOut {
@@ -71,7 +72,7 @@ div.form form {
 //MOVIES styles
 
 div.movieDiv {
-	height: 29em;
+	height: 25em;
 	border: 1em solid rgba(0,0,0,0);
 	padding: 2em;
 	margin-bottom: 1em;
@@ -91,32 +92,12 @@ div.userRating img {
 
 }
 
-//LIGHTBOX Styles
-.lightbox {
-		position: absolute;
-		top: 100px;
-		z-index: 2;
-    width:95%;
-    min-height: 80%;
-    margin:0 auto; /*centers the div horizontally in all browsers (except IE)*/
-    background: rgba(0,0,0,0.7);
-    text-align:left; /*resets text alignment from body tag */
-    border:1px solid #ccc;
-    border-top:none;
-    padding:25px;
-    /*Let's add some CSS3 styles, these will degrade gracefully in older browser and IE*/
-    border-radius:0 0 5px 5px;
-    -moz-border-radius:0 0 5px 5px;
-    -webkit-border-radius: 0 0 5px 5px;
-    box-shadow:0 0 5px #ccc;
-    -moz-box-shadow:0 0 5px #ccc;
-    -webkit-box-shadow:0 0 5px #ccc;
+.glyphicon-remove {
+  color: white;
 }
 
-.lightbox .searchResult {
-
-	background: rgba(255,255,255,1);
-
+#searchInput, #searchButton {
+  margin-top: 2em;
 }
 
 

@@ -36,7 +36,7 @@ return {
     });// end  firebase
 
 	} //end check
-} //end return
+}; //end return
 
 
 }); //end define
