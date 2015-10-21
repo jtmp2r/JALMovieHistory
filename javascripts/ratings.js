@@ -11,7 +11,7 @@ define(function(require) {
   			showRatings: function(UID) {
 
           currentUID = UID;
-          console.log('show ratings called');
+          console.log('show ratings called using', UID);
           $('div.userRating').each(function(){
 
             var thisMovieRating = $(this).attr('rating');
@@ -38,13 +38,11 @@ define(function(require) {
   					console.log('editRating Called on Movie ID: ' + thisMovieID);
   					var newRating = $('#ratingSelector' +thisMovieID).val();
 
+
  						ref.child("Users/"+currentUID+"/library/"+thisMovieID+"/userRating").set(newRating);
 
-  			}
+  			}//end edit rating
 
   		};//end return
-
-
-
 
 }); //end require

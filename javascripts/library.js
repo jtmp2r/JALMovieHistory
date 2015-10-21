@@ -2,7 +2,8 @@ define(function(require) {
   var _ = require("lodash"),
   		q = require("q"),
   		firebase = require('firebase'),
-      ratings = require('ratings');
+      ratings = require('ratings'),
+      reload = require('reload');
 
     var currentUID;
     var ref = new Firebase("https://jal-movie-history.firebaseio.com/");
@@ -16,11 +17,12 @@ define(function(require) {
 
     populate: function(UID) {
 
+      reload.setReloadType("populate");
       currentUID = UID;
       var filteredMovies = {};
 
       ref.off("value");
-      ref.child('Users/'+currentUID+'/library/').orderByChild('Title').on("value", function(snapshot){
+      ref.child('Users/'+currentUID+'/library/').orderByChild('Title').once("value", function(snapshot){
 
 
         var userMovies = snapshot.val();

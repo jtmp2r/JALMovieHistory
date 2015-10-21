@@ -16,8 +16,8 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "hbs", "bootstrap", "q", "firebase", "bootstrap-star-rating", "library", "register", "search", "user", "ratings"],
-  function($, Handlebars, bootstrap, q, firebase, bootstrap_star, library, register, search, user, ratings) {
+  ["jquery", "hbs", "bootstrap", "q", "firebase", "bootstrap-star-rating", "library", "register", "search", "user", "ratings", "reload"],
+  function($, Handlebars, bootstrap, q, firebase, bootstrap_star, library, register, search, user, ratings, reload) {
 
 
     var ref = new Firebase("https://jal-movie-history.firebaseio.com/");
@@ -83,6 +83,17 @@ requirejs(
         //event handler for ratings
     $(document).on('click', '.userRatingButton', function(){
       ratings.editRating($(this).attr('imdbID'));
+
+      $("#ratingSelector"+thisMovieID).toggle('display');
+      $("#ratingButton"+thisMovieID).toggle('display');
+
+      if (reload.getReloadType() == "search"){
+        search.searchOMDB();
+      } else {
+        var UID = library.getUID();
+        library.populate(UID);
+      };
+
     });
 
 
@@ -90,6 +101,14 @@ requirejs(
 
     $(document).on('click', '.deleteMovieIcon', function(){
       library.deleteMovie($(this).attr('imdbID'));
+
+      if (reload.getReloadType() == "search"){
+        search.searchOMDB();
+      } else {
+        var UID = library.getUID();
+        library.populate(UID);
+      };
+
     });
 
 
@@ -100,6 +119,24 @@ requirejs(
           e.preventDefault();
           search.searchOMDB();
         });
+
+
+          ////ADD MOVIE event handler
+
+      $(document).on('click', '.addMovie', function(e){
+          console.log('Movie Added through button',$(this));
+          movieID = $(this).attr('id');
+          library.add(movieID);
+
+          if (reload.getReloadType() == "search"){
+            search.searchOMDB();
+          } else {
+            var UID = library.getUID();
+            library.populate(UID);
+          };
+
+
+      }); // end add movie handler
 
 
 

@@ -4,7 +4,8 @@ define(function(require) {
   		firebase = require('firebase'),
   		library = require('library'),
       ratings = require('ratings'),
-      libraryCheck = require('libraryCheck');
+      libraryCheck = require('libraryCheck'),
+      reload = require('reload');
 
 
  var ref = new Firebase("https://jal-movie-history.firebaseio.com/");
@@ -13,6 +14,8 @@ define(function(require) {
 
 
     searchOMDB: function() {
+
+      reload.setReloadType("search");
 
     	var searchString = $('#searchInput').val().split(" ").join("+");
 
@@ -35,12 +38,6 @@ define(function(require) {
               var currentUID = library.getUID();
               ratings.showRatings(currentUID);
 
-              $(document).on('click', '.addMovie', function(e){
-              	console.log('Movie Added through button',$(this));
-              	movieID = $(this).attr('id');
-                library.add(movieID);
-
-              });
 
             });
 
