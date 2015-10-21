@@ -118,6 +118,8 @@ requirejs(
         $(document).on('click', '#searchButton', function(e){
           e.preventDefault();
           search.searchOMDB();
+
+          $('button.filterButton').each(function(){ $(this).removeClass('btn-success');});
         });
 
 
