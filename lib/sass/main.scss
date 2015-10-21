@@ -1,5 +1,5 @@
 //fonts
-@import url(https://fonts.googleapis.com/css?family=Handlee);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
 //Variables
 
 $screen-gradients: linear-gradient(rgba(0,0,0,1) 0%, rgba(0,0,0,1) 2%, rgba(255,255,255,0) 8%, rgba(255,255,255,0) 92%, rgba(0,0,0,1) 98%, rgba(0,0,0,1) 100%),
@@ -14,13 +14,13 @@ body {
     -webkit-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-   	font-family: 'Handlee', sans-serif;
+   	font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.5em;
 }
 
 
 //NAVIGATION///
-h1.topLevel, h3.topLevel, ul.nav, button.logOut {
+h1.topLevel, h3.topLevel, ul.nav {
 	line-height: 2em;
 	color: white;
 	display: inline-block;
@@ -92,12 +92,21 @@ div.userRating img {
 
 }
 
+// h2 {
+//   padding-bottom: .4em;
+// }
+
 .glyphicon-remove {
   color: white;
 }
 
 #searchInput, #searchButton {
   margin-top: 2em;
+}
+
+.glyphicon-eye-open {
+  color: white;
+  text-size: .8em;
 }
 
 
