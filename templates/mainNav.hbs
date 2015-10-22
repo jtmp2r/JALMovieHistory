@@ -1,19 +1,26 @@
-<div class="row">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <div class="navbar-brand">
+        <img class="img-responsive img-rounded" alt="Brand" src="/styles/images/popcorn-logo.png">
+      </div>
+    </div>
 
-	<div class="col-sm-5 col-sm-offset-1 col-xs-11">
-		<div class="input-group">
+    <form class="navbar-form navbar-left" role="search">
+    <div class="input-group">
       <input type="text" class="form-control" id="searchInput" placeholder="Movie Title">
-      	<span class="input-group-btn">
+        <span class="input-group-btn">
         <button class="btn btn-default" type="button" id="searchButton">Search</button>
       </span>
     </div>
-	</div>
+    </form>
 
-  <div class="col-sm-5 col-sm-offset-1 col-xs-11">
-    <h3 class='topLevel'>Your Popcorn Library</h1><button class="btn btn-default logOut" type="submit" id="logOut">Log Out</button>
-  </div>
-
-
-
-
-</div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" class="logOut" id="logOut" class="active">Log Out</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

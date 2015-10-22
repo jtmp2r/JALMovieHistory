@@ -20,24 +20,23 @@ body {
 
 
 //NAVIGATION///
-h1.topLevel, h3.topLevel, ul.nav {
-	line-height: 2em;
+h1.topLevel, h3.topLevel {
+	// line-height: 2em;
 	color: white;
-	display: inline-block;
   font-variant: small-caps;
 }
 
 button.logOut {
-	margin-left: 2em;
+	margin-left: 1em;
 }
 
-ul.nav li a {
-	margin: 1em;
-}
+// ul.nav li a {
+// 	margin: 1em;
+// }
 
-h1.topLevel, h3.topLevel {
-	text-align: center;
-}
+// h1.topLevel, h3.topLevel {
+// 	text-align: center;
+// }
 
 //WELCOME SPLASH STYLES
 div.splash {
@@ -46,6 +45,7 @@ background: $screen-gradients;
 	border-radius: 5px;
 	padding: 5%;
 }
+
 div.splash img {
 	max-width: 100%;
 }
@@ -72,7 +72,7 @@ div.form form {
 //MOVIES styles
 
 div.movieDiv {
-	height: 25em;
+	height: 20em;
 	border: 1em solid rgba(0,0,0,0);
 	padding: 2em;
 	margin-bottom: 1em;
@@ -100,13 +100,27 @@ div.userRating img {
   color: white;
 }
 
-#searchInput, #searchButton {
-  margin-top: 2em;
-}
+// #searchInput, #searchButton, #logOut {
+//   margin-top: 2em;
+// }
 
 .glyphicon-eye-open {
   color: white;
   text-size: .8em;
 }
 
+.navbar {
+  margin-top: 20px;
+}
 
+div.topLevel{
+  font-size: 1.5em;
+}
+
+.navbar-brand>img{
+  margin-top: -10px;
+}
+
+.userRatingButton, .userRatingSelector {
+  z-index: 10;
+}

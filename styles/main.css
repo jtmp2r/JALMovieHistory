@@ -8,20 +8,12 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.5em; }
 
-h1.topLevel, h3.topLevel, ul.nav {
-  line-height: 2em;
+h1.topLevel, h3.topLevel {
   color: white;
-  display: inline-block;
   font-variant: small-caps; }
 
 button.logOut {
-  margin-left: 2em; }
-
-ul.nav li a {
-  margin: 1em; }
-
-h1.topLevel, h3.topLevel {
-  text-align: center; }
+  margin-left: 1em; }
 
 div.splash {
   background: linear-gradient(black 0%, black 2%, rgba(255, 255, 255, 0) 8%, rgba(255, 255, 255, 0) 92%, black 98%, black 100%), linear-gradient(to right, black 0%, black 2%, white 8%, white 92%, black 98%, black 100%);
@@ -47,7 +39,7 @@ div.form form {
   margin-top: 2em; }
 
 div.movieDiv {
-  height: 25em;
+  height: 20em;
   border: 1em solid transparent;
   padding: 2em;
   margin-bottom: 1em; }
@@ -63,11 +55,20 @@ div.userRating img {
 .glyphicon-remove {
   color: white; }
 
-#searchInput, #searchButton {
-  margin-top: 2em; }
-
 .glyphicon-eye-open {
   color: white;
   text-size: .8em; }
+
+.navbar {
+  margin-top: 20px; }
+
+div.topLevel {
+  font-size: 1.5em; }
+
+.navbar-brand > img {
+  margin-top: -10px; }
+
+.userRatingButton, .userRatingSelector {
+  z-index: 10; }
 
 /*# sourceMappingURL=main.css.map */
