@@ -71,4 +71,8 @@ div.topLevel {
 .userRatingButton, .userRatingSelector {
   z-index: 10; }
 
+.none {
+  display: none;
+}
+
 /*# sourceMappingURL=main.css.map */

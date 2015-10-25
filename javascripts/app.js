@@ -101,6 +101,7 @@ requirejs(
 
     $(document).on('click', '.deleteMovieIcon', function(){
       library.deleteMovie($(this).attr('imdbID'));
+      console.log("delete movie button clicked");
 
       if (reload.getReloadType() == "search"){
         search.searchOMDB();

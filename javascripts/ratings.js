@@ -1,4 +1,4 @@
-define(function(require) {
+  define(function(require) {
   var _ = require("lodash"),
   		q = require("q"),
   		firebase = require('firebase');
@@ -20,7 +20,7 @@ define(function(require) {
             if (thisMovieRating == -2) {
               $(this).html('<div class="col-sm-12>"><button type="button" class="btn btn-default addMovie" id="'+thisMovieID+'"+>Add to Watch List</button></div>');
             } else if (thisMovieRating == -1) {
-              $(this).html('<p>Not Yet Watched</p> <span class="glyphicon glyphicon-eye-open"></span>');
+              $(this).html('<p>Not Yet Watched</p> <p> Beau testing </p> <span class="glyphicon glyphicon-eye-open"></span>');
             } else {
               $(this).html('<p>Rating: ');
               for (i=0; i < thisMovieRating; i++)

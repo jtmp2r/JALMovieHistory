@@ -120,8 +120,15 @@ define(function(require) {
     }, //End add
 
     deleteMovie: function(movieID) {
-
-         ref.child("Users/"+currentUID+"/library/"+movieID).remove();
+         console.log("movie is being deleted")
+         var removed = ref.child("Users/"+currentUID+"/library/"+movieID);
+         removed = $("div");
+         removed.add("div").addClass("none");
+         console.log("removed movies", removed)
+         $(document).append('#removedMovieList');
+         //if I toggle the display, then it won't be removed from firebase
+         //have to change .remove() to something that will add a class maybe?
+         //or should I have something where I can
 
     }, //End remove
 
