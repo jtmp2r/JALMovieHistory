@@ -100,14 +100,14 @@ requirejs(
     //end handler for remove glyphicon-remove" id="remove{{imdbID}}
 
     $(document).on('click', '.deleteMovieIcon', function(){
-      library.deleteMovie($(this).closest('.movieDiv').css("display", "none"));
+      library.deleteMovie($(this).attr('imdbID'));
       console.log("delete movie button clicked");
 
       if (reload.getReloadType() == "search"){
         search.searchOMDB();
       } else {
         var UID = library.getUID();
-       // library.populate(UID);
+        //library.populate(UID);
       };
 
     });

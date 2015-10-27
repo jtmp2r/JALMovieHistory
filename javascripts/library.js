@@ -106,7 +106,9 @@ define(function(require) {
           success: function(movieData){
 
             ref.child("Users/"+currentUID+"/library/"+movieID).set(movieData);
+            ref.child("Users/"+currentUID+"/library/"+movieID+"/inactiveState").set(false);
             ref.child("Users/"+currentUID+"/library/"+movieID+"/userRating").set(-1);
+
 
 
           },
@@ -120,9 +122,11 @@ define(function(require) {
     }, //End add
 
     deleteMovie: function(movieID) {
-         console.log("movie is being deleted")
-         //$(this).css("display", "none");
-        // var removed = ref.child("Users/"+currentUID+"/library/"+movieID).remove()
+      console.log("movie is being deleted")
+      ref.child("Users/"+currentUID+"/library/"+movieID).update({inactiveState: true});
+      //('.movieDiv').css("display", "none");
+
+
 
          //removed.add("div").add("none");
          //console.log("removed movies", removed)
