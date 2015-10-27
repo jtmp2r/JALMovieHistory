@@ -8,6 +8,7 @@ define(function(require) {
     var currentUID;
     var ref = new Firebase("https://jal-movie-history.firebaseio.com/");
     var currentFilter = "5stars";
+    var reviewNum = 10;
 
   return {
 
@@ -65,13 +66,14 @@ define(function(require) {
 
          //filter based on filter status 5 stars
         if (currentFilter == "5stars") {
+          console.log(reviewNum);
 
           userMoviesKeys = _.keys(userMovies);
 
 
           userMoviesKeys.forEach(function(key){
 
-            if (userMovies[key].userRating == 5) {
+            if (userMovies[key].userRating == 10) {
               filteredMovies[key] = userMovies[key];
 
             }
@@ -126,8 +128,9 @@ define(function(require) {
     }, //End remove
 
 
-    setFilter: function(filter){
+    setFilter: function(filter, num){
       currentFilter = filter;
+      reviewNum = num;
     }
 
 

@@ -69,9 +69,14 @@ define(function(require) {
                 library.populate(currentUID);
               });
 
-
-
           });
+        // Teriq's current changes
+         
+        $(document).on("change", "#slidIn", function(val) {
+          console.log("$(this).val()", $(this).val());
+          library.setFilter("5stars", $(this).val());
+        });
+        
 
           $("#centerDiv").html("");
 
@@ -80,6 +85,7 @@ define(function(require) {
         }
 });
     } //End LogIn
+
 
 
 

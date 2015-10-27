@@ -30,8 +30,8 @@ define(function(require) {
           });
 
 
-
   			},
+        
 
   			editRating: function(thisMovieID) {
 
