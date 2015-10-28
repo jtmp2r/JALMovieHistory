@@ -73,8 +73,11 @@ define(function(require) {
         // Teriq's current changes
          
         $(document).on("change", "#slidIn", function(val) {
+          var filmRating = $(this).val();
           console.log("$(this).val()", $(this).val());
-          library.setFilter("5stars", $(this).val());
+          library.setFilter("5stars", filmRating);
+          library.populate(currentUID);
+
         });
         
 

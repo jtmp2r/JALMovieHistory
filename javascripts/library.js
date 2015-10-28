@@ -73,7 +73,7 @@ define(function(require) {
 
           userMoviesKeys.forEach(function(key){
 
-            if (userMovies[key].userRating == 10) {
+            if (userMovies[key].userRating == reviewNum) {
               filteredMovies[key] = userMovies[key];
 
             }
